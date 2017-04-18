@@ -1,43 +1,49 @@
 package tdd_sandbox.calculator;
 
 /**
- * Created by dale_ on 17/04/2017.
+ * Created: dale_
+ * Date: 17/04/2017.
  */
 public class Calculator {
 
-    int baseNumber;
+    private int baseNumber;
 
-    int total;
+    private int total;
 
-    public Calculator(int baseNumber) {
+    Calculator(int baseNumber) {
         this.baseNumber = baseNumber;
         this.total = baseNumber;
     }
 
-    public void add(int numberToAdd) {
+    void add(int numberToAdd) {
         int value = getCurrentValue();
         total = value + numberToAdd;
     }
 
-    public void subtract(int numberToSubtract) {
+    void subtract(int numberToSubtract) {
         int value = getCurrentValue();
         total = value - numberToSubtract;
     }
 
-    public void multiplyBy(int numberToMulitplyBy) {
+    void multiplyBy(int numberToMulitplyBy) {
         int value = getCurrentValue();
         total = value * numberToMulitplyBy;
     }
 
-    public void divideBy(int numberToDivideBy) {
+    void divideBy(int numberToDivideBy) {
         int value = getCurrentValue();
         total = value / numberToDivideBy;
     }
 
-    public int getTotal() {
+    int getTotal() {
         return total;
     }
 
+    /**
+     * Returns the current total of {@link Calculator}
+     * Will return initialisation value if equal to total
+     * @return current total
+     */
     private int getCurrentValue() {
         if (doesTotalEqualBase()) {
             return baseNumber;
@@ -46,10 +52,11 @@ public class Calculator {
         }
     }
 
+    /**
+     * Allows us to determine whether we are dealing with initialisation value
+     * @return {@link Boolean}
+     */
     private boolean doesTotalEqualBase() {
-        if (baseNumber == total) {
-            return true;
-        }
-        return false;
+        return baseNumber == total;
     }
 }
